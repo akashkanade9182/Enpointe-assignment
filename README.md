@@ -6,7 +6,7 @@
 
 ## Step to  use
 
-# 1) firs Create new Account  as customer or banker
+# 1) firs Create new Account  as customer or banker.please select role for  banker or customer
 # 2) if already have account please login 
 # 3) if your are banker you will redirect to account page otherwise redirect to Transection page
  
