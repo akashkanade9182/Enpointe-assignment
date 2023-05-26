@@ -31,7 +31,7 @@ const SingleUser = () => {
                                    <path d="M4 6l16 0" />
                                    <path d="M4 12l16 0" />
                                    <path d="M4 18l16 0" />
-                              </svg> <span style={{ marginLeft: "10px", fontSize: "25px", fontWeight: "bold" }}>Trasection list</span>
+                              </svg> <span style={{ marginLeft: "10px", fontSize: "25px", fontWeight: "bold" }}>Transection list</span>
                          </div>
                          <div className='btn-box'>
 
