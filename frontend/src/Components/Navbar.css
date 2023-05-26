@@ -1,0 +1,18 @@
+.navbar{
+     width: 100%;
+     margin: auto;
+     height:50px;
+     border-radius: 10px;
+     background-color:#7721f9 ;
+     position: fixed;
+     top:10px;
+     display:flex;
+     justify-content: space-between;
+     align-items: center;
+     padding:0 20px;
+     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.nav-section{
+     color:white;
+     font-size: 20px;
+}
