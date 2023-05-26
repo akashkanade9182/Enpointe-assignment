@@ -1,9 +1,10 @@
+import { findAllByTestId } from "@testing-library/react";
 import * as types from "./actionTypes"
 
 
 
 const initialState = {
- 
+
   data: {},
   isLoading: false,
   isError: false,
@@ -13,7 +14,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-  
+
     case types.GET_PROFILE_REQUEST:
       return {
         ...state,
@@ -33,10 +34,18 @@ const reducer = (state = initialState, action) => {
         data: {},
         isError: true
       }
-   
+
+    case types.LOG_OUT:
+      return {
+        ...state,
+        isLoading: false,
+        data: {},
+        isError: false
+      }
+
     default: return state;
   }
-  
+
 
 };
 

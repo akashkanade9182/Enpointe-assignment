@@ -16,3 +16,10 @@
      color:white;
      font-size: 20px;
 }
+.logout-btn{
+     background-color: white;
+     color:blue;
+     padding:5px 10px;
+     border-radius: 10px;
+     font-size: 20px;
+}

@@ -96,18 +96,18 @@ const reducer = (state = initialState, action) => {
         isError: true
       }
 
-      case types.LOGOUT_SUCCESS:
-        return {
-          ...state,
-          isAuth: false,
+    case types.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuth: false,
         isLoading: false,
         isError: false,
         token: "",
         data: {}
-        }
+      }
     default: return state;
   }
-  
+
 
 };
 
