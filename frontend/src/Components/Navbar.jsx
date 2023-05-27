@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [token])
   return (
     <div className='navbar'>
-      <Box w={["70%","70%","70%","60%"]} display="flex" justifyContent={"space-between"} alignItems="center" border="1px solid red" h="100%">
+      <Box className="nav-first-box" w={["100%","70%","70%","60%"]} display="flex"  justifyContent={"space-between"} alignItems="center"  h="100%">
       <div className="nav-section">
         account holder:-{profile.name}
       </div>
