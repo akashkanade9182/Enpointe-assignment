@@ -56,14 +56,14 @@
           flex-direction: column-reverse;
      }
      .listhead div:first-child{
-          width: 90%;
+          width: 100%;
           margin: auto;
           margin-top: 10px;
 
           border-top: 1px solid black;
      }
      .btn-box{
-          width: 90%;
+          width: 95%;
           margin: auto;
           margin-top: 10px;
      }

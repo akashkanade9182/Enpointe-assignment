@@ -21,7 +21,7 @@ const getProfile = (token) => (dispatch) => {
   })
 }
 
-const updateProfile = (token, payload, { task }, onClose) => (dispatch) => {
+const updateProfile = (token,toast, payload, { task }, onClose) => (dispatch) => {
 
   dispatch({ type: types.GET_PROFILE_REQUEST })
   return axios.patch("https://odd-ruby-angelfish-wear.cyclic.app/user/updateprofile", payload, {
@@ -32,7 +32,14 @@ const updateProfile = (token, payload, { task }, onClose) => (dispatch) => {
     }
   }).then((r) => {
     dispatch({ type: types.GET_PROFILE_SUCCESS, payload: r.data })
-    alert(`${task}`)
+    toast({
+      position: 'top-center',
+      render: () => (
+        <div style={{ backgroundColor: " #272150", borderRadius: "9px", display: "flex", justifyContent: "space-around", alignItems: "center", width: "400px", padding: "10px 10px", height: "50px", color: "white" }}>
+         {task}
+        </div>
+      ),
+    })
     onClose();
     dispatch(getProfile(token));
   }).catch((e) => {

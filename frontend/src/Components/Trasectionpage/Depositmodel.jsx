@@ -14,6 +14,7 @@ import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux"
 import { updateProfile } from '../../Redux/ProfileReducer/action'
 import { addTransection } from '../../Redux/AppReducer/action'
+import { useToast } from '@chakra-ui/react'
 
 const Depositmodel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,6 +22,8 @@ const Depositmodel = () => {
   const profile = useSelector(store => store.ProfileReducer.data)
   const token = useSelector(store => store.AuthReducer.token)
   const dispatch = useDispatch();
+  const toast = useToast()
+
   const handleClick = () => {
     onOpen()
   }
@@ -37,7 +40,7 @@ const Depositmodel = () => {
       balance: newamount
 
     }
-    dispatch(updateProfile(token, data, { task: "amount added successfull" }, onClose)).then(() => {
+    dispatch(updateProfile(token,toast, data, { task: "amount added successfull" }, onClose)).then(() => {
     })
 
   }

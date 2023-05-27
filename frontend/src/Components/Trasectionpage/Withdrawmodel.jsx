@@ -13,6 +13,7 @@ import {
 import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux"
 import { updateProfile } from '../../Redux/ProfileReducer/action'
+import { useToast } from '@chakra-ui/react'
 
 const Withdrawmodel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -20,6 +21,8 @@ const Withdrawmodel = () => {
   const profile = useSelector(store => store.ProfileReducer.data)
   const token = useSelector(store => store.AuthReducer.token)
   const dispatch = useDispatch();
+  const toast = useToast()
+
   const handleClick = () => {
     onOpen()
   }
@@ -38,10 +41,17 @@ const Withdrawmodel = () => {
 
     }
     if (newamount < 0) {
-      alert("Insufficient Funds")
+      toast({
+        position: 'top-center',
+        render: () => (
+          <div style={{ backgroundColor: " #272150", borderRadius: "9px", display: "flex", justifyContent: "space-around", alignItems: "center", width: "400px", padding: "10px 10px", height: "50px", color: "white" }}>
+            Insufficient Funds
+          </div>
+        ),
+      })
     }
     else {
-      dispatch(updateProfile(token, data, { task: "amount withdraw successfull" }, onClose)).then(() => {
+      dispatch(updateProfile(token,toast, data, { task: "amount withdraw successfull" }, onClose)).then(() => {
       })
     }
 

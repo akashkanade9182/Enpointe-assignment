@@ -10,7 +10,7 @@ import axios from "axios"
 
 
 const postData = (payload) => {
-     return axios.post("http://localhost:7000/user/signup", payload)
+     return axios.post("https://odd-ruby-angelfish-wear.cyclic.app/user/signup", payload)
 }
 
 

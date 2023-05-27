@@ -56,7 +56,7 @@ const getLogin = (payload, toast, navigate) => (dispatch) => {
     toast({
       position: 'top-center',
       render: () => (
-        <div style={{ backgroundColor: "red.500", color: "white" }}>
+        <div style={{ backgroundColor: "red.500", color: "white",width:"auto",padding:"10px 10px" }}>
           please enter correct details
         </div>
       ),
