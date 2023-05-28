@@ -70,7 +70,7 @@ const Withdrawmodel = () => {
             <Box display={"flex"} p="15px 15px" w={["auto", "auto", "auto", "auto"]} className="scrollBox" border="1px solid black" h="300px" flexDirection={"column"}   >
               <h1 style={{ fontSize: "25px" }}>Account balance:-  {profile.balance}/-</h1>
               <label style={{ marginTop: "20px", fontSize: "25px" }}>Deposite amount</label>
-              <Input value={amount} type="number" placeholder={"enter amount"} color="black" bgColor="white" onChange={(e) => setAmount(e.target.value)} />
+              <Input  type="number" placeholder={"enter amount"} color="black" bgColor="white" onChange={(e) => setAmount(e.target.value)} />
               <button style={{ width: "200px", margin: "auto", marginTop: "20px" }} className="deposit-btn" onClick={handleWithdraw}   >WithDraw</button>
 
 

@@ -6,12 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTransection } from "../Redux/AppReducer/action"
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import Withdrawmodel from '../Components/Trasectionpage/Withdrawmodel';
+import Load from '../Components/Login/Load';
 
 
 const Transectionpage = () => {
   const dispatch = useDispatch();
   const data = useSelector(store => store.AppReducer.data)
   const profile = useSelector(store => store.ProfileReducer.data)
+  const isLoading=useSelector(store => store.AppReducer.isLoading)
 
   useEffect(() => {
     if (profile._id) {
@@ -35,8 +37,7 @@ const Transectionpage = () => {
           <div className='btn-box'>
             <Depositmodel />
             <Withdrawmodel />
-            {/* <button className='deposit-btn'>Deposite</button> */}
-            {/* <button className='withdraw-btn'>Withdraw</button> */}
+      
           </div>
 
         </div>
@@ -50,14 +51,13 @@ const Transectionpage = () => {
             <Box w="15%" fontSize={["12px", "18px", "20px", "25px"]} >balance</Box>
 
           </Box>
-          {
-            data.length === 0 ? <h4 style={{ fontSize: "25px", marginTop: "20px" }}>... No transection</h4> : data.map((ele, index) => (
+          {isLoading?<Load/>: data.length === 0 ? <h4 style={{ fontSize: "25px", marginTop: "20px" }}>... No transection</h4> : data.map((ele, index) => (
               <SimpleGrid bgColor={index % 2 !== 0 ? "#d2d9d4" : "white"} w="100%" minChildWidth="200px" display="flex" justifyContent={"space-around"} alignItems="center">
                 <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{index + 1}</Box>
                 <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.date}</Box>
                 <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.time}</Box>
                 <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]} >{ele.status}</Box>
-                <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]} color={ele.status == "Deposit" ? "green.400" : "red"}>{ele.actionamount}</Box>
+                <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]} color={ele.status == "Deposit" ? "green.400" : "red"}>{ele.status == "Deposit"?"+":"-"} { ele.actionamount}</Box>
                 <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.balance}</Box>
 
               </SimpleGrid>

@@ -1,7 +1,7 @@
 import { Box, Button, Input } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import "../Style/Login.css"
 import { getLogin } from '../Redux/AuthReducer/action';
 import { useSelector } from 'react-redux'; import "../Style/Login.css"
@@ -24,11 +24,7 @@ const Login = () => {
         dispatch(getLogin(data, toast, navigate))
 
     }
-    if (isLoading) {
-        return (
-            <Load />
-        )
-    }
+
     return (
         <div className="login-box">
             <div className='loginform-box'>
@@ -37,7 +33,9 @@ const Login = () => {
 
 
                 <Input mt="20px" placeholder={"password"} bgColor="white" onChange={(e) => setPassword(e.target.value)} />
-                <Button w="100%" bgColor={"#2196f9"} onClick={handleSubmit} color="white" p="0 10px" m="auto" display="flex" mt="15px">Sign in</Button>
+                {
+                isLoading?<Box w="100%" display="flex" justifyContent={"space-around"} alignItems={"center"}><div class="custom-loader"></div></Box>:<Button w="100%" bgColor={"#2196f9"} onClick={handleSubmit} color="white" p="0 10px" m="auto" display="flex" mt="15px">Sign in</Button>
+                }
                 <Button w="100%" bgColor={"#2196f9"} color="white" p="0 10px" m="auto" display="flex" mt="15px" onClick={() => navigate("/signup")}>Create new account</Button>
                 <Box display={"flex"} w="100%" m="auto" mt="20px" justifyContent={"space-around"} alignItems="center">
                     <Box w="40%" borderTop="1px solid black">

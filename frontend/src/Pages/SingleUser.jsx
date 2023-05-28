@@ -8,18 +8,26 @@ import { Box, SimpleGrid } from '@chakra-ui/react';
 import Withdrawmodel from '../Components/Trasectionpage/Withdrawmodel';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from "../Components/Accountpage/Header"
+import Load from '../Components/Login/Load';
+
+
 const SingleUser = () => {
      const dispatch = useDispatch();
      const data = useSelector(store => store.AppReducer.data)
+     const isLoading = useSelector(store => store.AppReducer.isLoading)
      const profile = useSelector(store => store.ProfileReducer.data)
      const { id } = useParams();
      const navigate = useNavigate()
+
+
      useEffect(() => {
           if (id) {
                dispatch(getTransection(id))
           }
+      }, [id])
 
-     }, [id])
+
+
      return (
           <div className='trasectionpage'>
                <Header id={id} />
@@ -50,7 +58,7 @@ const SingleUser = () => {
 
                          </Box>
                          {
-                              data.length === 0 ? <h4 style={{ fontSize: "25px", marginTop: "20px" }}>... No transection</h4> : data.map((ele, index) => (
+                             isLoading?<Load/>: data.length === 0 ? <h4 style={{ fontSize: "25px", marginTop: "20px" }}>... No transection</h4> : data.map((ele, index) => (
                                    <SimpleGrid bgColor={index % 2 !== 0 ? "#d2d9d4" : "white"} w="100%" minChildWidth="200px" display="flex" justifyContent={"space-around"} alignItems="center">
                                         <Box w="15%" fontSize={["15px", "18px", "20px", "20px"]}>{index + 1}</Box>
                                         <Box w="15%" fontSize={["15px", "18px", "20px", "20px"]}>{ele.date}</Box>
