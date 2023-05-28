@@ -15,12 +15,13 @@ import { useSelector, useDispatch } from "react-redux"
 import { updateProfile } from '../../Redux/ProfileReducer/action'
 import { addTransection } from '../../Redux/AppReducer/action'
 import { useToast } from '@chakra-ui/react'
-
+import "./Depositemodel.css"
 const Depositmodel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [amount, setAmount] = useState(0)
   const profile = useSelector(store => store.ProfileReducer.data)
-  const token = useSelector(store => store.AuthReducer.token)
+  const token = useSelector(store => store.AuthReducer.token);
+  const isLoading=useSelector(store => store.ProfileReducer.isLoading)
   const dispatch = useDispatch();
   const toast = useToast()
 
@@ -28,7 +29,8 @@ const Depositmodel = () => {
     onOpen()
   }
   const handleDeposit = () => {
-    let newamount = profile.balance + Number(amount);
+     let newamount = profile.balance + Number(amount);
+
     const currentTime = new Date();
     const currentHours = currentTime.getHours();
     const currentMinutes = currentTime.getMinutes();
@@ -46,7 +48,10 @@ const Depositmodel = () => {
 
   return (
     <>
-      <button className="deposit-btn" onClick={handleClick}   >Deposit</button>
+    {
+      isLoading?<div className="btn-loader"></div>:      <button className="deposit-btn" onClick={handleClick}   >Deposit</button>
+
+    }
 
       <Modal isOpen={isOpen} size={["sm", "sm", "md", "md"]} onClose={onClose}>
         <ModalOverlay />

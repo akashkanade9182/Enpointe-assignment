@@ -14,11 +14,12 @@ import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux"
 import { updateProfile } from '../../Redux/ProfileReducer/action'
 import { useToast } from '@chakra-ui/react'
-
+import "./Withdrawmodel.css"
 const Withdrawmodel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [amount, setAmount] = useState(0)
   const profile = useSelector(store => store.ProfileReducer.data)
+  const isLoading = useSelector(store => store.ProfileReducer.isLoading)
   const token = useSelector(store => store.AuthReducer.token)
   const dispatch = useDispatch();
   const toast = useToast()
@@ -27,6 +28,7 @@ const Withdrawmodel = () => {
     onOpen()
   }
   const handleWithdraw = () => {
+    
     let newamount = profile.balance - Number(amount);
     const currentTime = new Date();
     const currentHours = currentTime.getHours();
@@ -59,7 +61,10 @@ const Withdrawmodel = () => {
 
   return (
     <>
-      <button className="deposit-btn" onClick={handleClick}   >Withdraw</button>
+    {
+      isLoading?<div className="btn-loader"></div>:      <button className="deposit-btn" onClick={handleClick}   >Withdraw</button>
+
+    }
 
       <Modal isOpen={isOpen} size={["sm", "sm", "md", "md"]} onClose={onClose}>
         <ModalOverlay />
