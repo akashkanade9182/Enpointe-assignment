@@ -20,8 +20,7 @@ const Login = () => {
         let data = {
             email, password
         }
-
-        dispatch(getLogin(data, toast, navigate))
+      dispatch(getLogin(data, toast, navigate))
 
     }
 
