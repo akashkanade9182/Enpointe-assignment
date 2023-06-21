@@ -62,7 +62,7 @@ const Signup = () => {
                <Input mt="20px" value={email} placeholder=' email' bgColor="white" onChange={(e) => setEmail(e.target.value)} />
 
 
-               <Input mt="20px" value={password} placeholder={"password"} bgColor="white" onChange={(e) => setPassword(e.target.value)} />
+               <Input mt="20px" type="password" value={password} placeholder={"password"} bgColor="white" onChange={(e) => setPassword(e.target.value)} />
                <Select className='role' value={role} placeholder='select role' onChange={(e) => setRole(e.target.value)} name="" id="">
                     <option value="customer">Customer</option>
                     <option value="banker">Banker</option>
