@@ -56,7 +56,7 @@ const Signup = () => {
           <div className="login-box">
               
               <div style={{ height: "450px" }} className={"loginform-box"}>
-               <h1 style={{ color: "#2196f9", fontSize: "30px", fontWeight: "bold", textAlign: "center" }}>Signup</h1>
+               <h1 style={{ color: "#2196f9", fontSize: "30px", fontWeight: "bold", textAlign: "center" }}>Sign up</h1>
                <Input mt="20px" value={name} placeholder=' name' bgColor="white" onChange={(e) => setName(e.target.value)} />
 
                <Input mt="20px" value={email} placeholder=' email' bgColor="white" onChange={(e) => setEmail(e.target.value)} />
@@ -68,7 +68,7 @@ const Signup = () => {
                     <option value="banker">Banker</option>
                </Select>
                {
-                    load?<Box w="100%" display="flex" justifyContent={"space-around"} alignItems={"center"}><div class="custom-loader"></div></Box>:<Button w="100%" bgColor={"#2196f9"} onClick={handleSubmit} color="white" p="0 10px" m="auto" display="flex" mt="15px">Sing up</Button>
+                    load?<Box w="100%" display="flex" justifyContent={"space-around"} alignItems={"center"}><div class="custom-loader"></div></Box>:<Button w="100%" bgColor={"#2196f9"} onClick={handleSubmit} color="white" p="0 10px" m="auto" display="flex" mt="15px">Sign up</Button>
 
                }
                <Button w="100%" bgColor={"#2196f9"} color="white" p="0 10px" m="auto" display="flex" mt="15px" onClick={() => navigate("/")}>Already have account</Button>
