@@ -61,11 +61,11 @@ const SingleUser = () => {
                              isLoading?<Load/>: data.length === 0 ? <h4 style={{ fontSize: "25px", marginTop: "20px" }}>... No transection</h4> : data.map((ele, index) => (
                                    <SimpleGrid bgColor={index % 2 !== 0 ? "#d2d9d4" : "white"} w="100%" minChildWidth="200px" display="flex" justifyContent={"space-around"} alignItems="center">
                                         <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{index + 1}</Box>
-                                        <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.date}</Box>
+                                        <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.date.split("T")[0].split("-").reverse().join("-")}</Box>
                                         <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.time}</Box>
                                         <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]} >{ele.status}</Box>
                                         <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]} color={ele.status == "Deposit" ? "green.400" : "red"}>{ele.status == "Deposit"?"+":"-"} { ele.actionamount}</Box>
-                                        <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.balance}</Box>
+                                        <Box w="15%" fontSize={["12px", "18px", "20px", "20px"]}>{ele.balance} /-</Box>
 
                                    </SimpleGrid>
                               ))

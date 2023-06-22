@@ -31,7 +31,7 @@ const Login = () => {
                 <Input mt="20px" placeholder=' email' bgColor="white" onChange={(e) => setEmail(e.target.value)} />
 
 
-                <Input mt="20px" placeholder={"password"} bgColor="white" onChange={(e) => setPassword(e.target.value)} />
+                <Input mt="20px" type="password" placeholder={"password"} bgColor="white" onChange={(e) => setPassword(e.target.value)} />
                 {
                 isLoading?<Box w="100%" display="flex" justifyContent={"space-around"} alignItems={"center"}><div class="custom-loader"></div></Box>:<Button w="100%" bgColor={"#2196f9"} onClick={handleSubmit} color="white" p="0 10px" m="auto" display="flex" mt="15px">Sign in</Button>
                 }
