@@ -47,20 +47,8 @@ const getLogin = (payload, toast, navigate) => (dispatch) => {
 
 
     }
-    else if(r.data==="email id is linked to another account"){
-      dispatch({ type: types.LOGIN_FAILURE })
+   
 
-      toast({
-        position: 'top-center',
-        render: () => (
-          <div style={{ backgroundColor: "red.500", color: "white",width:"auto",padding:"10px 10px" }}>
-           email id is linked to another account
-          </div>
-        ),
-      })
-    }
-
-    // console.log(r.data.token)
   }).catch((e) => {
     console.log(e)
     dispatch({ type: types.LOGIN_FAILURE })
